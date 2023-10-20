@@ -6,11 +6,25 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
     "express": "~4.16.1",
+    "express-validator": "^6.14.2",
+    "http-errors": "^2.0.0",
+    "ideacodinglab": "^0.0.10",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.29.4",
+    "mongoose": "^5.10.0",
     "morgan": "~1.9.1",
+    "nodemailer": "^6.9.5",
+    "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
     "socket.io": "^4.5.1"
   }
 }
