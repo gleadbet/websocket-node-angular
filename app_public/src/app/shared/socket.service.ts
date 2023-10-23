@@ -81,9 +81,11 @@ export class SocketService{
     }
 
     public getData(tags: any[]){
+        console.log(`tags: ${tags}`)
         this._socket.emit('tagdata', tags);
     }
 
+    // Observable that can be used to display
     public OnData(): Observable<any> {
         return new Observable<any>(observer => {
             this._socket.on('recentdata', (data: any) => observer.next(data));

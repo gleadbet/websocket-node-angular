@@ -20,8 +20,9 @@ function webSocket(socket) {
 
     socket.on('tagdata', tags => {
       console.log("TAGS: " + tags);
-      tdId = recentDataFromTags(tags);
+      tdId = recentDataFromTags(socket,tags);
   })
+  
 
   socket.on('status stop', () => {
       if(hbId)  {
@@ -54,12 +55,14 @@ function heartbeats(socket) {
   return hbId;
 }
 
-
-function recentDataFromTags(tags) {
+// We have seen the signal for tag data,  and have been passed the "tags" we want to monitor
+// Call the monggo "pipeline" query
+// Then send back the data we recieive with the message "recentdata"
+function recentDataFromTags(socket, tags) {
   var tdId = setInterval(async function () {
       var data = await util.getRecentTagData(tags);
       console.log(data);
-      ioServer.emit('recentdata', data);
+      socket.emit('recentdata', data);
   }, 5000);
 
   return tdId;
