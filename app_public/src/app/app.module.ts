@@ -9,8 +9,9 @@ import { TagGageComponent } from './tags/tag-gage.component';    // Import the t
 import { WelcomeComponent } from './home/welcome.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { SocketService } from './shared/socket.service';
-
 import { FormsModule } from '@angular/forms';
+
+
 
 const config: SocketIoConfig = { url: 'http://localhost:5002' };
 
@@ -19,12 +20,13 @@ const config: SocketIoConfig = { url: 'http://localhost:5002' };
     AppComponent,
     TagListComponent,                                    // List tags and their values
     TagGageComponent,                                    // Refer to the tag-gage.componet (Gages)
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
     SocketIoModule.forRoot(config),
     RouterModule.forRoot([                                // This allows routing of pages and
     { path: 'welcome', component: WelcomeComponent },
